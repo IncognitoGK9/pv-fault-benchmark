@@ -20,8 +20,8 @@
   "subsample_fault_prevalence": 0.3269230769230769,
   "subsample_tier_counts": {
     "No-Fault": 14000,
-    "Severe (Uniform/Intermittent)": 2000,
-    "Constant-Partial-Shading": 1600
+    "Constant-Partial-Shading": 4000,
+    "Severe (Uniform/Intermittent)": 2800
   },
   "n_episodes_kept": 24,
   "n_fault_episodes_kept": 17,

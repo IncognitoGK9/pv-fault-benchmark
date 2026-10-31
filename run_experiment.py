@@ -109,6 +109,14 @@ def main():
     with open(f"{config.RESULTS_DIR}/summary_metrics.json", "w") as f:
         json.dump(summary, f, indent=2)
 
+    # Per-fold metric values (15 per run), needed to recompute any paired
+    # test (Wilcoxon, Friedman, corrected t-test) without re-running the CV.
+    per_fold = {s: {k: {mn: {kk: vv for kk, vv in agg.items() if kk.endswith("_values")}
+                        for mn, agg in all_aggs[s][k].items()}
+                    for k in all_aggs[s]} for s in all_aggs}
+    with open(f"{config.RESULTS_DIR}/per_fold_metrics.json", "w") as f:
+        json.dump(per_fold, f, indent=2)
+
     # ---- Selected hyperparameters per outer fold, plus the mode across folds ----
     # (a byproduct of the RandomizedSearchCV already run above, persisted
     # rather than discarded; underlies paper Table IV-b).

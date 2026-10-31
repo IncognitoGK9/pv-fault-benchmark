@@ -139,9 +139,11 @@ def main():
         "full_dataset_stats": full_stats,
         "subsample_n_rows": int(len(sub)),
         "subsample_fault_prevalence": float((sub["fault_bin"] == 1).mean()),
+        # Count rows per tier (the earlier per-code comprehension keyed on the
+        # tier name and so kept only the LAST code of each tier).
         "subsample_tier_counts": {
-            config.TIER_NAMES[config.TIER_MAP[k]]: int((sub["Fault"] == k).sum())
-            for k in sorted(sub["Fault"].unique())
+            config.TIER_NAMES[t]: int(sub["Fault"].map(config.TIER_MAP).eq(t).sum())
+            for t in sorted(config.TIER_NAMES)
         },
         "n_episodes_kept": int(sub["episode_id"].nunique()),
         "n_fault_episodes_kept": int(sub.groupby("episode_id")["fault_bin"].first().sum()),

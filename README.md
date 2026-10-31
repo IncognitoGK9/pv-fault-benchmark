@@ -63,6 +63,12 @@ python feature_ablation_rf.py # raw-vs-engineered feature ablation
                                #   results/feature_ablation_rf.json
 
 python visualize.py           # builds figures/*.png from the results/ files
+                               #   (note: its feature-importance figure is the
+                               #   legacy LR-coefficient / DT-importance chart)
+
+python review/fig_shap_normalised.py  # paper Fig. 3: per-model normalised SHAP shares
+python review/reanalysis.py   # post-hoc checks used in the arXiv version: Holm
+                               #   correction, confound probe, per-episode recall
 ```
 
 ### Measured runtime
@@ -135,7 +141,9 @@ things follow from that:
 | `shap_analysis.py` | Cross-model SHAP feature attribution — run after `run_experiment.py` |
 | `fault_type_error_analysis.py` | Per-fault-code and per-tier error breakdown (Random Forest only) |
 | `feature_ablation_rf.py` | Raw-vs-engineered feature ablation (Random Forest only) |
-| `visualize.py` | Builds `figures/*.png` from `results/` (and `shap_importance.json`) |
+| `visualize.py` | Builds `figures/*.png` from `results/` (the SHAP figure is built by `review/fig_shap_normalised.py`) |
+| `review/` | Hostile-review report, update notes, post-hoc reanalysis scripts and outputs |
+| `arxiv/` | LaTeX source, figures and compiled PDF of the arXiv preprint |
 
 ## Output (`results/`)
 
@@ -150,6 +158,7 @@ things follow from that:
 - `most_common_hyperparameters.json` — the modal (most frequently selected) configuration per model/condition across the outer folds; underlies paper Table IV-b
 - `feature_ablation_rf.json` — raw-vs-engineered feature ablation (Table X)
 - `fault_type_error_analysis.json` — per-fault-code and per-tier breakdown (Tables XI, XI-b)
+- `per_fold_metrics.json` — per-fold values (written by future runs; absent for the stored run)
 - `figures/*.png` — all paper figures
 
 All of the above are already populated in this repository from the run
