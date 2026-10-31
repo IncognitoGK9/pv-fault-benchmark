@@ -1,0 +1,78 @@
+{
+  "per_fault_code_recall_binary_classifier": {
+    "0.0": {
+      "name": "No-fault",
+      "n_rows": 42000,
+      "specificity (correctly No-Fault)": 0.9349047619047619
+    },
+    "1.0": {
+      "name": "Uniform shading",
+      "n_rows": 2400,
+      "recall (correctly flagged Fault)": 0.5008333333333334
+    },
+    "2.1": {
+      "name": "Partial shading (2.1: 1 module)",
+      "n_rows": 1200,
+      "recall (correctly flagged Fault)": 0.9991666666666666
+    },
+    "2.2": {
+      "name": "Partial shading (2.2: 2 modules)",
+      "n_rows": 1200,
+      "recall (correctly flagged Fault)": 1.0
+    },
+    "2.3": {
+      "name": "Partial shading (2.3: 3 modules)",
+      "n_rows": 1200,
+      "recall (correctly flagged Fault)": 0.006666666666666667
+    },
+    "3.1": {
+      "name": "Partial shading (3.1: 1/3 module)",
+      "n_rows": 3600,
+      "recall (correctly flagged Fault)": 0.9472222222222222
+    },
+    "3.2": {
+      "name": "Partial shading (3.2: 2/3 module)",
+      "n_rows": 4800,
+      "recall (correctly flagged Fault)": 0.9997916666666666
+    },
+    "4.0": {
+      "name": "Intermittent partial shading",
+      "n_rows": 6000,
+      "recall (correctly flagged Fault)": 0.5948333333333333
+    }
+  },
+  "per_tier_class_classification_report": {
+    "No-Fault": {
+      "precision": 0.8851722190852626,
+      "recall": 0.9331190476190476,
+      "f1-score": 0.9085134743552593,
+      "support": 42000.0
+    },
+    "Constant-Partial-Shading": {
+      "precision": 0.5574347077752002,
+      "recall": 0.62075,
+      "f1-score": 0.5873910814966684,
+      "support": 12000.0
+    },
+    "Severe (Uniform/Intermittent)": {
+      "precision": 0.2721545569088618,
+      "recall": 0.15428571428571428,
+      "f1-score": 0.1969305576660082,
+      "support": 8400.0
+    },
+    "accuracy": 0.7682051282051282,
+    "macro avg": {
+      "precision": 0.5715871612564415,
+      "recall": 0.5693849206349206,
+      "f1-score": 0.5642783711726453,
+      "support": 62400.0
+    },
+    "weighted avg": {
+      "precision": 0.7396241662326581,
+      "recall": 0.7682051282051282,
+      "f1-score": 0.7509691600204388,
+      "support": 62400.0
+    }
+  },
+  "note": "Random Forest only, fixed modal hyperparameters (Table IV-b), no hyperparameter search; pooled out-of-fold predictions across 15 outer folds."
+}

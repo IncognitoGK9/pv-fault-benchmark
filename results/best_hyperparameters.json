@@ -1,0 +1,2361 @@
+{
+  "binary": {
+    "smote": {
+      "LogisticRegression": [
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 10
+        }
+      ],
+      "kNN": [
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 31
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 11
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 21
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 11
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        }
+      ],
+      "DecisionTree": [
+        {
+          "clf__min_samples_leaf": 20,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": null,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 6,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        }
+      ],
+      "SVM": [
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 1
+        },
+        {
+          "clf__gamma": "auto",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": "auto",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 1
+        }
+      ],
+      "MLP": [
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16,
+            8
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16,
+            8
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            32,
+            16
+          ],
+          "clf__alpha": 0.0001
+        }
+      ],
+      "RandomForest": [
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 16
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 1,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        }
+      ],
+      "XGBoost": [
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 1.0,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.05,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 1.0,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 1.0
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        }
+      ]
+    },
+    "no_smote": {
+      "LogisticRegression": [
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 10
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        }
+      ],
+      "kNN": [
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 31
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 21
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 11
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 11
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 21
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 21
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 11
+        }
+      ],
+      "DecisionTree": [
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 20,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 20,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 20,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        }
+      ],
+      "SVM": [
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        }
+      ],
+      "MLP": [
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16,
+            8
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32,
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        }
+      ],
+      "RandomForest": [
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 16
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 100,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 1,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 100,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": null
+        }
+      ],
+      "XGBoost": [
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 300,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 1.0
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 1.0,
+          "clf__n_estimators": 300,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.05,
+          "clf__colsample_bytree": 1.0
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 300,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 1.0
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 300,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 1.0
+        }
+      ]
+    }
+  },
+  "tier": {
+    "smote": {
+      "LogisticRegression": [
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 10
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        }
+      ],
+      "kNN": [
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 2,
+          "clf__n_neighbors": 31
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        }
+      ],
+      "DecisionTree": [
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 6,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 6,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 6,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 6,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 12,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 16,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": null,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 6,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        }
+      ],
+      "SVM": [
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.1,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        }
+      ],
+      "MLP": [
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            32,
+            16
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16,
+            8
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32,
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        }
+      ],
+      "RandomForest": [
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 100,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 16
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 16
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 16
+        }
+      ],
+      "XGBoost": [
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.7
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.7
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.7
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 1.0,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        }
+      ]
+    },
+    "no_smote": {
+      "LogisticRegression": [
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 100
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 1
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.01
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        },
+        {
+          "clf__penalty": "l2",
+          "clf__C": 0.001
+        }
+      ],
+      "kNN": [
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 1,
+          "clf__n_neighbors": 11
+        },
+        {
+          "clf__weights": "uniform",
+          "clf__p": 2,
+          "clf__n_neighbors": 31
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 3
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 51
+        },
+        {
+          "clf__weights": "distance",
+          "clf__p": 1,
+          "clf__n_neighbors": 5
+        }
+      ],
+      "DecisionTree": [
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 20,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 4,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 4,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 16,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": null,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 10,
+          "clf__max_depth": 3,
+          "clf__criterion": "entropy"
+        },
+        {
+          "clf__min_samples_leaf": 1,
+          "clf__max_depth": 3,
+          "clf__criterion": "gini"
+        },
+        {
+          "clf__min_samples_leaf": 5,
+          "clf__max_depth": 8,
+          "clf__criterion": "gini"
+        }
+      ],
+      "SVM": [
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": "scale",
+          "clf__C": 0.1
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.001,
+          "clf__C": 100
+        },
+        {
+          "clf__gamma": 0.01,
+          "clf__C": 0.1
+        }
+      ],
+      "MLP": [
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.01,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.0001
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16,
+            8
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32,
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            32
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16,
+            8
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.001,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            64
+          ],
+          "clf__alpha": 0.01
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        },
+        {
+          "clf__learning_rate_init": 0.0005,
+          "clf__hidden_layer_sizes": [
+            16
+          ],
+          "clf__alpha": 0.1
+        }
+      ],
+      "RandomForest": [
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 100,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 100,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 5,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 300,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 100,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "sqrt",
+          "clf__max_depth": null
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        },
+        {
+          "clf__n_estimators": 200,
+          "clf__min_samples_leaf": 10,
+          "clf__max_features": "log2",
+          "clf__max_depth": 8
+        }
+      ],
+      "XGBoost": [
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 1.0,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.1,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 9,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.7
+        },
+        {
+          "clf__subsample": 0.85,
+          "clf__n_estimators": 500,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.3,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 300,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 1.0
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 6,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.7
+        },
+        {
+          "clf__subsample": 0.7,
+          "clf__n_estimators": 100,
+          "clf__max_depth": 3,
+          "clf__learning_rate": 0.01,
+          "clf__colsample_bytree": 0.85
+        }
+      ]
+    }
+  }
+}

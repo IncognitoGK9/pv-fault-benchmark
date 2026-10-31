@@ -1,0 +1,65 @@
+{
+  "LogisticRegression": {
+    "LogisticRegression": null,
+    "kNN": 0.5666666666666667,
+    "DecisionTree": -0.16666666666666666,
+    "SVM": 0.5666666666666667,
+    "MLP": 0.3333333333333333,
+    "RandomForest": -0.11666666666666667,
+    "XGBoost": -0.06666666666666667
+  },
+  "kNN": {
+    "LogisticRegression": -0.5666666666666667,
+    "kNN": null,
+    "DecisionTree": -0.43333333333333335,
+    "SVM": -0.4,
+    "MLP": 0.0,
+    "RandomForest": -0.9333333333333333,
+    "XGBoost": -0.7904761904761904
+  },
+  "DecisionTree": {
+    "LogisticRegression": 0.16666666666666666,
+    "kNN": 0.43333333333333335,
+    "DecisionTree": null,
+    "SVM": 0.31666666666666665,
+    "MLP": 0.5,
+    "RandomForest": -0.13333333333333333,
+    "XGBoost": 0.009523809523809525
+  },
+  "SVM": {
+    "LogisticRegression": -0.5666666666666667,
+    "kNN": 0.4,
+    "DecisionTree": -0.31666666666666665,
+    "SVM": null,
+    "MLP": 0.25,
+    "RandomForest": -0.4666666666666667,
+    "XGBoost": -0.4666666666666667
+  },
+  "MLP": {
+    "LogisticRegression": -0.3333333333333333,
+    "kNN": 0.0,
+    "DecisionTree": -0.5,
+    "SVM": -0.25,
+    "MLP": null,
+    "RandomForest": -1.0,
+    "XGBoost": -0.7333333333333333
+  },
+  "RandomForest": {
+    "LogisticRegression": 0.11666666666666667,
+    "kNN": 0.9333333333333333,
+    "DecisionTree": 0.13333333333333333,
+    "SVM": 0.4666666666666667,
+    "MLP": 1.0,
+    "RandomForest": null,
+    "XGBoost": 0.25
+  },
+  "XGBoost": {
+    "LogisticRegression": 0.06666666666666667,
+    "kNN": 0.7904761904761904,
+    "DecisionTree": -0.009523809523809525,
+    "SVM": 0.4666666666666667,
+    "MLP": 0.7333333333333333,
+    "RandomForest": -0.25,
+    "XGBoost": null
+  }
+}

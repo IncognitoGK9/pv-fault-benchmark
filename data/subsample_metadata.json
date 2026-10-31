@@ -1,0 +1,294 @@
+{
+  "full_dataset_stats": {
+    "n_rows_raw": 2988798,
+    "date_min": "2021-10-01 14:10:02+04:00",
+    "date_max": "2023-04-13 17:42:27+04:00",
+    "fault_value_counts": {
+      "0.0": 2904284,
+      "1.0": 6318,
+      "2.1": 2148,
+      "2.2": 2460,
+      "2.3": 3287,
+      "3.1": 2717,
+      "3.2": 6292,
+      "4.0": 61292
+    },
+    "n_segments_total": 35,
+    "n_fault_segments": 17
+  },
+  "subsample_n_rows": 20800,
+  "subsample_fault_prevalence": 0.3269230769230769,
+  "subsample_tier_counts": {
+    "No-Fault": 14000,
+    "Severe (Uniform/Intermittent)": 2000,
+    "Constant-Partial-Shading": 1600
+  },
+  "n_episodes_kept": 24,
+  "n_fault_episodes_kept": 17,
+  "segments": [
+    {
+      "episode_id": 0,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 452225,
+      "n_kept": 2000,
+      "start": "2021-10-27 14:49:12+04:00",
+      "end": "2021-10-28 06:25:11+04:00"
+    },
+    {
+      "episode_id": 1,
+      "label": 1,
+      "fault_codes": [
+        2.1
+      ],
+      "n_original": 2148,
+      "n_kept": 400,
+      "start": "2022-02-08 13:03:46+04:00",
+      "end": "2022-02-08 13:37:01+04:00"
+    },
+    {
+      "episode_id": 3,
+      "label": 1,
+      "fault_codes": [
+        2.2
+      ],
+      "n_original": 2460,
+      "n_kept": 400,
+      "start": "2022-02-09 12:13:21+04:00",
+      "end": "2022-02-09 12:46:36+04:00"
+    },
+    {
+      "episode_id": 5,
+      "label": 1,
+      "fault_codes": [
+        2.3
+      ],
+      "n_original": 3287,
+      "n_kept": 400,
+      "start": "2022-02-11 14:31:38+04:00",
+      "end": "2022-02-11 15:04:53+04:00"
+    },
+    {
+      "episode_id": 6,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 21003,
+      "n_kept": 2000,
+      "start": "2022-02-12 06:46:08+04:00",
+      "end": "2022-02-12 09:32:43+04:00"
+    },
+    {
+      "episode_id": 7,
+      "label": 1,
+      "fault_codes": [
+        1.0
+      ],
+      "n_original": 3018,
+      "n_kept": 400,
+      "start": "2022-02-14 14:02:28+04:00",
+      "end": "2022-02-14 14:35:43+04:00"
+    },
+    {
+      "episode_id": 9,
+      "label": 1,
+      "fault_codes": [
+        1.0
+      ],
+      "n_original": 3300,
+      "n_kept": 400,
+      "start": "2022-02-15 11:12:49+04:00",
+      "end": "2022-02-15 11:46:14+04:00"
+    },
+    {
+      "episode_id": 10,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 11735,
+      "n_kept": 2000,
+      "start": "2022-02-16 11:13:42+04:00",
+      "end": "2022-02-16 14:00:17+04:00"
+    },
+    {
+      "episode_id": 11,
+      "label": 1,
+      "fault_codes": [
+        4.0
+      ],
+      "n_original": 12716,
+      "n_kept": 400,
+      "start": "2022-02-18 14:51:39+04:00",
+      "end": "2022-02-18 15:24:54+04:00"
+    },
+    {
+      "episode_id": 13,
+      "label": 1,
+      "fault_codes": [
+        3.2
+      ],
+      "n_original": 2280,
+      "n_kept": 400,
+      "start": "2022-02-24 12:34:15+04:00",
+      "end": "2022-02-24 13:07:30+04:00"
+    },
+    {
+      "episode_id": 15,
+      "label": 1,
+      "fault_codes": [
+        3.2
+      ],
+      "n_original": 1236,
+      "n_kept": 400,
+      "start": "2022-03-01 10:52:46+04:00",
+      "end": "2022-03-01 11:26:01+04:00"
+    },
+    {
+      "episode_id": 17,
+      "label": 1,
+      "fault_codes": [
+        4.0
+      ],
+      "n_original": 19617,
+      "n_kept": 400,
+      "start": "2022-03-09 12:14:32+04:00",
+      "end": "2022-03-09 12:47:47+04:00"
+    },
+    {
+      "episode_id": 19,
+      "label": 1,
+      "fault_codes": [
+        4.0
+      ],
+      "n_original": 22988,
+      "n_kept": 400,
+      "start": "2022-03-16 16:12:26+04:00",
+      "end": "2022-03-16 16:58:59+04:00"
+    },
+    {
+      "episode_id": 21,
+      "label": 1,
+      "fault_codes": [
+        4.0
+      ],
+      "n_original": 3245,
+      "n_kept": 400,
+      "start": "2022-03-25 12:03:43+04:00",
+      "end": "2022-03-25 12:43:37+04:00"
+    },
+    {
+      "episode_id": 23,
+      "label": 1,
+      "fault_codes": [
+        4.0
+      ],
+      "n_original": 2726,
+      "n_kept": 400,
+      "start": "2022-04-19 14:03:04+04:00",
+      "end": "2022-04-19 14:42:58+04:00"
+    },
+    {
+      "episode_id": 24,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 37404,
+      "n_kept": 2000,
+      "start": "2022-04-23 17:05:49+04:00",
+      "end": "2022-04-24 09:28:53+04:00"
+    },
+    {
+      "episode_id": 25,
+      "label": 1,
+      "fault_codes": [
+        3.2
+      ],
+      "n_original": 1258,
+      "n_kept": 400,
+      "start": "2022-04-25 12:17:28+04:00",
+      "end": "2022-04-25 12:57:22+04:00"
+    },
+    {
+      "episode_id": 27,
+      "label": 1,
+      "fault_codes": [
+        3.2
+      ],
+      "n_original": 1518,
+      "n_kept": 400,
+      "start": "2022-04-27 10:52:11+04:00",
+      "end": "2022-04-27 11:32:11+04:00"
+    },
+    {
+      "episode_id": 28,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 69250,
+      "n_kept": 2000,
+      "start": "2022-05-03 11:46:02+04:00",
+      "end": "2022-05-03 16:13:16+04:00"
+    },
+    {
+      "episode_id": 29,
+      "label": 1,
+      "fault_codes": [
+        3.1
+      ],
+      "n_original": 891,
+      "n_kept": 400,
+      "start": "2022-05-10 10:14:18+04:00",
+      "end": "2022-05-10 11:07:30+04:00"
+    },
+    {
+      "episode_id": 30,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 22007,
+      "n_kept": 2000,
+      "start": "2022-05-13 12:59:38+04:00",
+      "end": "2022-05-13 17:27:01+04:00"
+    },
+    {
+      "episode_id": 31,
+      "label": 1,
+      "fault_codes": [
+        3.1
+      ],
+      "n_original": 928,
+      "n_kept": 400,
+      "start": "2022-05-16 10:02:11+04:00",
+      "end": "2022-05-16 10:55:23+04:00"
+    },
+    {
+      "episode_id": 33,
+      "label": 1,
+      "fault_codes": [
+        3.1
+      ],
+      "n_original": 898,
+      "n_kept": 400,
+      "start": "2022-05-19 10:19:56+04:00",
+      "end": "2022-05-19 11:13:16+04:00"
+    },
+    {
+      "episode_id": 34,
+      "label": 0,
+      "fault_codes": [
+        0.0
+      ],
+      "n_original": 1923878,
+      "n_kept": 2000,
+      "start": "2023-03-12 15:34:27+04:00",
+      "end": "2023-03-13 07:27:10+04:00"
+    }
+  ]
+}
