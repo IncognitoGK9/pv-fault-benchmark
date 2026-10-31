@@ -90,7 +90,7 @@ Run `python review/verify_claims.py`. Every line should print PASS. Each finding
 ## 6. Decisions taken (author-confirmed in round 2)
 * SHAP runtime text: **"about 1.5–2 h"** (kept).
 * Table 6 (arXiv Table 5): **kept exactly as v2** ("Python 3 (author's workstation)", "≥" versions, CPU-only note).
-* AI declaration: Claude used for writing, drafting and cross-checking figures; all experiments designed and all scripts written and run by the first author, who takes full responsibility. **ChatGPT is still named** because v2 declared it. Delete "ChatGPT (OpenAI) and" if it was not used.
+* AI declaration: Claude used for writing, drafting and cross-checking figures; all experiments designed and all scripts written and run by the first author, who takes full responsibility. ChatGPT removed at the author's request (round 3); only Claude is named.
 * Corresponding author: Zablon Ombiro, zablon.ombiro@strathmore.edu.
 * Reframing accepted ("correct the rest as suggested"): the confound section (§5.6, Table 13), Holm correction, narrower conclusion, normalised SHAP, both conditions in the tier table, episode-level per-fault table.
 * Dropped as padding: Hossen 2026, Zheng 2026, Kawoosa 2023, Patnaik 2021.

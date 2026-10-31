@@ -36,7 +36,7 @@ Each change is listed with its reason. The reason codes (M = major, E = error) r
 * Removed: per-classifier textbook equations (LR, kNN, DT, SVM, MLP, RF, XGB) and the accuracy/precision/recall/F1 formulas. Only MCC is kept. The qualitative Table 3 is merged into the related-work text, and Table 1 is shortened to "data and task" and "difference".
 * Gap rhetoric (about seven instances), the "lack of approaches that" bullet list, and stock contrastive phrasing are removed. The text was rewritten throughout in plain declarative style.
 * CRediT for B. Shibwabo normalised to CRediT roles.
-* AI declaration: names Claude for writing, drafting and cross-checking figures, and states that all experiments and scripts were designed and run by the first author, who takes full responsibility. ChatGPT is retained because v2 declared it **[AUTHOR: delete "ChatGPT (OpenAI) and" if it was not used for this version]**.
+* AI declaration: names Claude for writing, drafting and cross-checking figures, and states that all experiments and scripts were designed and run by the first author, who takes full responsibility. ChatGPT removed at the author's request (round 3); only Claude is named.
 
 ## Round 2 (after author feedback)
 * Corresponding author added: Zablon Ombiro, zablon.ombiro@strathmore.edu (title-page footnote with a mailto link).
