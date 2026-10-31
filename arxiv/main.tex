@@ -22,7 +22,7 @@
 
 \title{Benchmarking Classical Machine Learning Models for Shading-Fault Detection in Rooftop Photovoltaic Systems Using Real Sensor Data}
 
-\author[1]{Zablon Ombiro\thanks{Corresponding author.}}
+\author[1]{Zablon Ombiro\thanks{Corresponding author: Zablon Ombiro, \href{mailto:zablon.ombiro@strathmore.edu}{zablon.ombiro@strathmore.edu}}}
 \author[1]{Bernard Shibwabo}
 \affil[1]{School of Computing and Engineering Sciences, Strathmore University, Nairobi, Kenya}
 \date{}
@@ -54,7 +54,7 @@ The contributions are: (i) a seven-classifier benchmark on real staged shading f
 
 \section{Related work}
 
-\citet{Eldeghady2024}, \citet{Khandeparkar2025} and \citet{Mouleloued2025} compare supervised classifiers, including Random Forest and, in one case, XGBoost, on simulated PV fault data. They report point estimates without cross-model significance tests. Ensembles have also been validated on real DC-side and multi-plant data \citep{Chen2018,Dhibi2021,Harrou2022,Hussain2022}, including about 70{,}000 readings from a 500\,kWp system \citep{Gaaloul2025}. Related comparisons pit the support vector machine (SVM) against XGBoost \citep{Suliman2024} and combine logistic regression, decision-tree and SVM learners in a voting ensemble \citep{Yang2022}. \citet{Mellit2022} find that the advantage of ensembles over classical learners is real but not universal, which is the case for testing differences rather than reading them off point estimates. \citet{TocheTchio2024} compare several classifiers, including Random Forest, SVM and Logistic Regression, on real low-cost-sensor data that include partial shading, without grouped splits or significance testing. Class imbalance and label noise have been handled with RUSBoost \citep{Adhya2023} and distributionally robust logistic regression \citep{Wang2023}. Ensembles have also been applied to thermal images \citep{KrishnaVeni2025} and to an emulator testbed \citep{QuilesCucarella2025}.
+\citet{Eldeghady2024}, \citet{Khandeparkar2025} and \citet{Mouleloued2025} compare supervised classifiers, including Random Forest and, in one case, XGBoost, on simulated PV fault data. They report point estimates without cross-model significance tests. Ensembles have also been validated on real DC-side and multi-plant data \citep{Chen2018,Dhibi2021,Harrou2022,Hussain2022}, including about 70{,}000 readings from a 500\,kWp system \citep{Gaaloul2025}. Related comparisons pit the support vector machine (SVM) against XGBoost \citep{Suliman2024} and combine logistic regression, decision-tree and SVM learners in a voting ensemble \citep{Yang2022}. \citet{Mellit2022} find that the advantage of ensembles over classical learners is real but not universal, which is the case for testing differences rather than reading them off point estimates. \citet{TocheTchio2024} compare Extra Trees with six classifiers (Logistic Regression, kNN, SVM, decision tree, AdaBoost and Random Forest) on low-cost-sensor PV data that include partial shading, without grouped splits or significance testing. Class imbalance and label noise have been handled with RUSBoost \citep{Adhya2023} and distributionally robust logistic regression \citep{Wang2023}. Ensembles have also been applied to thermal images \citep{KrishnaVeni2025} and to an emulator testbed \citep{QuilesCucarella2025}.
 
 Real field data have mostly been used for other tasks. \citet{Kappler2024} combine a long short-term memory network with a one-diode model for shading-aware power forecasting. PVF-10 provides real drone thermal imagery \citep{Wang2024a}. \citet{Graillet2022} describe the dataset used here but report no classifier.
 
@@ -78,7 +78,7 @@ Study & Data and task & Difference in this work \\
 \citet{Eldeghady2024} & Simulated PV array faults; several supervised classifiers; accuracy-focused & Real staged faults; six metrics; corrected paired tests \\
 \citet{Khandeparkar2025} & Simulated fault signatures, four types; five models incl.\ RF and XGBoost & Same ensemble baselines on real data with grouped splits \\
 \citet{Mouleloued2025} & Seven-class fault dataset; five models incl.\ RF & MCC and AUC-ROC alongside accuracy; significance testing \\
-\citet{TocheTchio2024} & Real low-cost-sensor data incl.\ partial shading; several classifiers & Episode-grouped CV, repeated paired tests, SHAP \\
+\citet{TocheTchio2024} & Low-cost-sensor data incl.\ partial shading; Extra Trees vs.\ six classifiers & Episode-grouped CV, repeated paired tests, SHAP \\
 \citet{Utama2023} & Comparison of explanation methods for PV faults & SHAP across seven classifiers on a normalised scale \\
 \citet{Kappler2024} & Real installation; LSTM + physical model; forecasting & Discrete fault classification; multi-model comparison \\
 \citet{Graillet2022} & Data descriptor of the R\'eunion plant & First classifier benchmark on this record \\
@@ -128,7 +128,7 @@ All 29 features are computed within an episode, so no window crosses an episode 
 \item sixteen rolling features: the mean $\mu_w$ and standard deviation $\sigma_w$ of $P_g$, $I_a$, $V_g$ and $F_g$ over $w=5$ and $10$ samples (about 30 and 60\,s);
 \item two first differences, $\Delta P_g$ and $\Delta I_a$.
 \end{itemize}
-Because $V_g$ is nearly constant (s.d.\ about 4\,V), $V_g-V_a$ carries essentially the same information as $V_a$.
+Because $V_g$ stays near 233\,V whenever the inverter is connected (s.d.\ about 4\,V over no-fault rows), $V_g-V_a$ carries essentially the same information as $V_a$.
 
 Logistic Regression, kNN, the SVM and the MLP receive features standardised on the training fold; the tree models use raw scales. SMOTE (imbalanced-learn, three neighbours) is fitted inside each training fold, including the inner tuning folds. Every run is repeated without SMOTE.
 
@@ -189,25 +189,29 @@ Pairwise differences in accuracy and MCC are tested with the Wilcoxon signed-ran
 
 \subsection{Implementation}
 
-All experiments ran on a single CPU-only workstation, with a fixed seed (42) for SMOTE, the classifiers and the search. The outer split of repeat $i$ uses seed $42+i$. The 28 runs took 26{,}666\,s (7.4\,h). Table~\ref{tab:env} lists the software. The post-hoc diagnostics in Sections~\ref{sec:perfault} and~\ref{sec:confound} use the same outer splits and the fixed modal Random Forest configuration.
+All experiments ran on a single CPU-only workstation, with a fixed seed (42) for SMOTE, the classifiers and the search. The outer split of repeat $i$ uses seed $42+i$. The 28 runs took 26{,}666\,s (7.4\,h), and the separate SHAP computation about 1.5--2\,h, dominated by kNN, the SVM and the MLP, for which no closed-form SHAP algorithm exists. Table~\ref{tab:env} lists the software and hardware. The post-hoc diagnostics in Sections~\ref{sec:perfault} and~\ref{sec:confound} use the same outer splits and the fixed modal Random Forest configuration.
 
 \begin{table}[t]
 \centering
-\caption{Software environment (minimum versions, as pinned in the repository's \texttt{requirements.txt}).}
+\caption{Software and hardware environment.}
 \label{tab:env}
 \small
-\begin{tabular}{@{}ll@{}}
+\begin{tabularx}{\textwidth}{@{}lY@{}}
 \toprule
 Component & Version \\
 \midrule
-Python & 3.x \\
-pandas / NumPy & $\geq$2.0 / $\geq$1.24 \\
-scikit-learn / imbalanced-learn & $\geq$1.3 / $\geq$0.11 \\
-SciPy / matplotlib & $\geq$1.10 / $\geq$3.7 \\
-XGBoost / SHAP & $\geq$2.0 / $\geq$0.44 \\
-Hardware & single CPU-only workstation; no GPU \\
+Python & 3 (author's workstation) \\
+pandas & $\geq$ 2.0 \\
+NumPy & $\geq$ 1.24 \\
+scikit-learn & $\geq$ 1.3 \\
+imbalanced-learn & $\geq$ 0.11 \\
+SciPy (Wilcoxon testing) & $\geq$ 1.10 \\
+matplotlib & $\geq$ 3.7 \\
+XGBoost & $\geq$ 2.0 (ensemble classifier, Section 3.3) \\
+SHAP & $\geq$ 0.44 (feature attribution, Section 4.4) \\
+Hardware & CPU only; all classifiers run unmodified on commodity laptop hardware; no GPU required \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \section{Results}
@@ -303,7 +307,7 @@ XGBoost & 38{,}979 & 3{,}021 & 4{,}883 & 15{,}517 \\
 
 \subsection{Statistical significance}
 
-Table~\ref{tab:wilcoxon} gives the uncorrected Wilcoxon $p$-values on accuracy. Before correction, Random Forest exceeds kNN ($p<.001$, $r=.93$) and the MLP ($p<.001$, $r=1.0$), and XGBoost exceeds both ($p=.009$, $r=.79$; $p=.010$, $r=.73$). On MCC, both ensembles exceed kNN ($p=.003$, $r=1.0$), the MLP ($p=.006$ and $.026$) and the SVM ($p=.021$ and $.016$), and the Decision Tree exceeds kNN ($p=.041$). No comparison involving Logistic Regression is significant on either metric. Neither is any comparison among Logistic Regression, the Decision Tree and the two ensembles (all $p\geq.37$ on MCC and $p\geq.42$ on accuracy).
+Table~\ref{tab:wilcoxon} gives the uncorrected Wilcoxon $p$-values on accuracy. Before correction, Random Forest exceeds kNN ($p<.001$, $r=.93$) and the MLP ($p<.001$, $r=1.0$), and XGBoost exceeds both ($p=.009$, $r=.79$; $p=.010$, $r=.73$). On MCC, both ensembles exceed kNN ($p=.003$, $r=1.0$), the MLP ($p=.006$ and $.026$) and the SVM ($p=.021$ and $.016$), and the Decision Tree exceeds kNN ($p=.041$). No comparison involving Logistic Regression is significant on either metric. Neither is any comparison among Logistic Regression, the Decision Tree and the two ensembles (all $p\geq.29$ on MCC and $p\geq.42$ on accuracy).
 
 After Holm correction over the 21 pairs, two comparisons survive on accuracy: Random Forest over the MLP ($p_{\mathrm{Holm}}=.001$) and over kNN ($p_{\mathrm{Holm}}=.009$). None survives on MCC; the smallest is $p_{\mathrm{Holm}}=.070$, for both ensembles versus kNN. The large effect sizes show that the ensembles beat kNN and the MLP in most folds. But with 17 fault episodes and correlated repeats, the design can confirm only the largest gaps. The lack of significant differences among Logistic Regression, the Decision Tree and the ensembles is a failure to detect a difference. It does not show that they perform equally.
 
@@ -424,7 +428,7 @@ Code & Description & Pooled rows & Recall & Episodes detected \\
 \end{tabular}
 \end{table}
 
-The missed episodes share an operating signature. The code-2.3 episode and one missed intermittent episode were recorded at low output (median $P_g$ of 217\,W and 179\,W), with $V_a$ of 181 and 169\,V. The no-fault median $V_a$ is 184\,V, against 151\,V for fault rows, so these episodes sit inside the no-fault voltage range. The other missed intermittent episode has near-normal $V_a$ (176\,V) at full output. A moving shadow may simply have been off the array for much of the retained 400-row slice, which is 2--15\% of each intermittent episode. The missed uniform-shading episode injected no power at all during its slice. Code 2.1, with fewer raw rows than code 2.3, is detected perfectly, which rules out sparsity as the explanation for code 2.3.
+The missed episodes share an operating signature. The code-2.3 episode and one missed intermittent episode were recorded at low output (median $P_g$ of 217\,W and 179\,W), with $V_a$ of 181 and 169\,V. The no-fault median $V_a$ is 184\,V, against 151\,V for fault rows, so these episodes sit inside the no-fault voltage range. The other missed intermittent episode has near-normal $V_a$ (176\,V) at full output. A moving shadow may simply have been off the array for much of the retained 400-row slice, which is 2--15\% of each intermittent episode. Both uniform-shading episodes inject no power during their slices; the detected one also has $V_a=0$, whereas the missed one holds $V_a$ at about 150\,V, a value typical of fault rows at full output. Code 2.1, with fewer raw rows than code 2.3, is detected perfectly, which rules out sparsity as the explanation for code 2.3.
 
 At tier level (three-class Random Forest with SMOTE, pooled; accuracy 0.768, macro-F1 0.564), the per-tier F1 is 0.909 for no fault, 0.587 for constant partial shading and 0.197 for severe shading (precision 0.272, recall 0.154). The faults most closely tied to the fire-risk motivation are the ones detected least reliably.
 
@@ -453,7 +457,7 @@ Each outer fold holds out three or four fault episodes, and episodes are detecte
 \subsection{Operating-condition confound}
 \label{sec:confound}
 
-The subsampling keeps a contiguous 400-row slice (about 33\,min) per fault episode and a 2{,}000-row slice per no-fault run. All fault slices fall between 10:00 and 17:00. Most no-fault slices extend into early morning or late afternoon, between 05:51 and 18:11. The median clock hour is similar (12.6 versus 13.4), but the spread is not (s.d.\ 1.7 versus 3.7\,h), and the median grid power differs widely (982\,W for fault rows versus 274\,W for no-fault rows). To measure the effect, we re-ran the outer protocol with the modal Random Forest and no SMOTE on restricted inputs (Table~\ref{tab:confound}). Clock time alone, which carries no electrical information, gives MCC 0.44, more than kNN or the MLP achieve with 29 features. $V_a$ alone gives 0.72, and the six raw channels without $E_g$ give 0.74; both exceed every tuned model in Table~\ref{tab:primary}.
+The subsampling keeps a contiguous 400-row slice (33--53\,min) per fault episode and a 2{,}000-row slice per no-fault run. All fault slices fall between 10:00 and 17:00. Most no-fault slices extend into early morning or late afternoon, between 05:51 and 18:11. The median clock hour is similar (12.6 versus 13.4), but the spread is not (s.d.\ 1.7 versus 3.7\,h), and the median grid power differs widely (982\,W for fault rows versus 274\,W for no-fault rows). To measure the effect, we re-ran the outer protocol with the modal Random Forest and no SMOTE on restricted inputs (Table~\ref{tab:confound}). Clock time alone, which carries no electrical information, gives MCC 0.44, more than kNN or the MLP achieve with 29 features. $V_a$ alone gives 0.72, and the six raw channels without $E_g$ give 0.74; both exceed every tuned model in Table~\ref{tab:primary}.
 
 \begin{table}[t]
 \centering
@@ -495,7 +499,7 @@ We compared seven classical and ensemble-tree classifiers on real, physically st
 Future work will (i) re-run the benchmark with no-fault rows matched to the fault episodes in clock time and irradiance, using the companion meteorological data; (ii) replace the Wilcoxon tests with a corrected resampled $t$-test and report per-episode results; (iii) recompute SHAP on the tuned, out-of-fold models on a common output scale; (iv) extend the ablation to all feature blocks with and without SMOTE; and (v) evaluate sequence models and other real fault-labelled PV datasets as they become available.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
-During the preparation of this work the authors used ChatGPT (OpenAI) and Claude (Anthropic) to assist with drafting, copy-editing and consistency checks of the manuscript against the stored results. The authors reviewed and edited all output against the experimental data and take full responsibility for the content.
+During the preparation of this work the authors used ChatGPT (OpenAI) and Claude (Anthropic) to assist with writing, drafting and copy-editing the manuscript, and Claude to cross-check the reported figures against the stored results. All experiments were designed, and all scripts written and run, by the first author. The authors reviewed and edited all AI-assisted text against the experimental outputs and take full responsibility for the content of this publication.
 
 \section*{CRediT authorship contribution statement}
 \textbf{Zablon Ombiro:} Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -- original draft, Writing -- review \& editing, Visualization. \textbf{Bernard Shibwabo:} Supervision, Validation, Writing -- review \& editing.

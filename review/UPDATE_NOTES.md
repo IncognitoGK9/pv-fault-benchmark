@@ -29,14 +29,24 @@ Each change is listed with its reason. The reason codes (M = major, E = error) r
 * Fault window "3.5 months" → "about 100 days (8 Feb – 19 May 2022)" (E3). Run segmentation sentence rewritten (E6).
 * Sample rate "≈ 0.2 Hz" → "one sample every 5–8 s" (measured median 6 s). `Eg` described as the *daily cumulative* energy counter.
 * Wainer & Cawley (2021) and Benavoli (2017) now cited for what they actually say (E9, E10). Benavoli volume corrected to 18(77).
-* SHAP runtime sentence removed (the paper and README disagree: E5) **[AUTHOR: state the measured figure]**.
-* Table 6: "Python 3 (author's workstation)" replaced by "minimum versions from requirements.txt". **[AUTHOR: insert the exact versions and CPU/RAM]** (E11).
+* SHAP runtime: kept at "about 1.5–2 h" in §3.5, as the authors decided in round 2 (the measured re-run time is recorded in HANDOVER §5).
+* Table 6 (now Table 5): **kept exactly as in v2**, as the authors decided in round 2.
 * Reference "Ombiro, H." → "Ombiro, Z.", now cited in Data availability (E7).
 * Dropped as citation padding: Hossen et al. 2026, Zheng et al. 2026, Kawoosa et al. 2023, Patnaik et al. 2021. **[AUTHOR: restore any you consider essential]**
 * Removed: per-classifier textbook equations (LR, kNN, DT, SVM, MLP, RF, XGB) and the accuracy/precision/recall/F1 formulas. Only MCC is kept. The qualitative Table 3 is merged into the related-work text, and Table 1 is shortened to "data and task" and "difference".
 * Gap rhetoric (about seven instances), the "lack of approaches that" bullet list, and stock contrastive phrasing are removed. The text was rewritten throughout in plain declarative style.
 * CRediT for B. Shibwabo normalised to CRediT roles.
-* AI declaration now names ChatGPT **and Claude**, because this revision was produced with Claude **[AUTHOR: confirm wording]**.
+* AI declaration: names Claude for writing, drafting and cross-checking figures, and states that all experiments and scripts were designed and run by the first author, who takes full responsibility. ChatGPT is retained because v2 declared it **[AUTHOR: delete "ChatGPT (OpenAI) and" if it was not used for this version]**.
+
+## Round 2 (after author feedback)
+* Corresponding author added: Zablon Ombiro, zablon.ombiro@strathmore.edu (title-page footnote with a mailto link).
+* Toche Tchio (2024) now described precisely: Extra Trees vs LR, kNN, SVM, DT, AdaBoost and RF (verified by web search).
+* Self-check found and fixed three errors in the round-1 arXiv draft:
+  1. Upper-group MCC p-value floor: "≥ .37" → "≥ .29" (LR vs XGB = .286).
+  2. "`V_g` nearly constant (s.d. 4 V)" holds only for no-fault rows; it is now qualified as "whenever the inverter is connected".
+  3. Missed uniform-shading episode: zero output does not explain the miss, because the detected one also has zero output. The text now gives the actual difference (`V_a` = 0 for the detected episode vs ≈ 150 V for the missed one).
+* Fault-slice duration "about 33 min" → "33–53 min".
+* `review/verify_claims.py` added: 45 automated checks, including all 140 retyped table cells. All pass.
 
 ## Table/figure numbering, Word → arXiv
 Word T1–T14 → LaTeX T1, T2, (T3 removed), T4→T3, T5→T4, T6→T5, T7→T6, T8→T7, T9→T8, T10→T9, T11→T10 (extended), T12→T11, T13→T12 (+ column), T14 folded into the §4.7 text, plus new T13 (confound probe). Figures: 1, 2 unchanged; 3 replaced; 4 and 5 merged into one two-panel figure.

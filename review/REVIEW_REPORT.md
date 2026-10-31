@@ -15,7 +15,7 @@ On top of that, the no-fault class is sampled under different operating conditio
 ## A. Major issues (these change the conclusions)
 
 ### M1. The no-fault class is confounded with time of day and operating level (not disclosed)
-* Every fault slice is about 33 min in the middle of the day (10:00–17:00, median hour 12.6). Each no-fault slice is a random run of 2,000 consecutive rows, so it covers several hours. Five of the seven no-fault slices include dawn or dusk (earliest 05:51, latest 18:11). The fault class has an hour s.d. of 1.7 h; the no-fault class has 3.7 h.
+* Every fault slice is 400 rows (33–53 min) in the middle of the day (10:00–17:00, median hour 12.6). Each no-fault slice is a random run of 2,000 consecutive rows, so it covers several hours. Five of the seven no-fault slices include dawn or dusk (earliest 05:51, latest 18:11). The fault class has an hour s.d. of 1.7 h; the no-fault class has 3.7 h.
 * Median `Pg` is 274 W for no-fault and 982 W for fault. Median `Va` is 184 V for no-fault and 151 V for fault.
 * `Eg` is the **daily cumulative energy counter**: it resets at midnight and rises through the day (checked in the subsample). It therefore encodes time of day and irradiance history, not shading. Yet it ranks second for DT, kNN and XGBoost.
 * **Probe** (Random Forest with the fixed modal configuration, same 3×5 StratifiedGroupKFold, no SMOTE):
@@ -61,7 +61,7 @@ On top of that, the no-fault class is sampled under different operating conditio
   * Code 2.3: its single episode = 0.007.
 
   Reporting 0.501 to three decimals implies a precision that n = 2 episodes cannot support. Report hits as *k / n episodes*.
-* §5.8 blames the code-2.3 failure on sparsity (3,287 rows). This is contradicted by the design. Every fault episode contributes exactly 400 rows, and code 2.1 has fewer raw rows (2,148) yet is detected perfectly. The data show the actual reason. Episode 5 (code 2.3) was recorded at low output (median `Pg` 217 W) with `Va` = 181 V, which is inside the no-fault `Va` range (median 184 V). The missed code-4.0 episode 19 matches the same pattern (late afternoon, `Pg` 179 W, `Va` 169 V). The missed episode 23 has near-normal `Va` (176 V). Missed uniform-shading episode 9 injects zero power for the whole slice.
+* §5.8 blames the code-2.3 failure on sparsity (3,287 rows). This is contradicted by the design. Every fault episode contributes exactly 400 rows, and code 2.1 has fewer raw rows (2,148) yet is detected perfectly. The data show the actual reason. Episode 5 (code 2.3) was recorded at low output (median `Pg` 217 W) with `Va` = 181 V, which is inside the no-fault `Va` range (median 184 V). The missed code-4.0 episode 19 matches the same pattern (late afternoon, `Pg` 179 W, `Va` 169 V). The missed episode 23 has near-normal `Va` (176 V). Both uniform-shading episodes inject zero power. The detected one (episode 7) also has `Va` = 0, while the missed one (episode 9) holds `Va` ≈ 150 V, a value typical of fault rows at full output.
 * Intermittent episodes run up to 22,988 rows. Keeping a random 400-row slice (2–15 % of the episode) may capture unshaded intervals that still carry the fault label. This is label noise caused by subsampling, and it should be stated.
 * Tables 12–14 use a **fixed modal configuration chosen from the outer-fold searches**, so outer-test data informed it. Tables 13 and 14 do not disclose this. It is mildly optimistic, and it means Table 14's 0.768 (pooled) cannot be compared with the 0.741 fold mean in Table 11.
 
@@ -84,7 +84,7 @@ Table 11 shows the with-SMOTE condition only. Without SMOTE, the tier-scheme lea
 | E2 | Abstract, §5.10 | partial-shading codes recall "≥ 0.95" / "mostly ≥ 0.95" | code 3.1 = 0.947; four of five codes ≥ 0.94; code 2.3 = 0.007 |
 | E3 | §3.1, §5.9, §6 | fault window "about 3.5 months" | 8 Feb – 19 May 2022 = 100 days (≈ 3.3 months) |
 | E4 | §3.5 | "each repeat using the seed plus its repeat index" for SMOTE and every classifier | seed + repeat applies **only** to the outer split; SMOTE, the classifiers and the inner search all use 42 |
-| E5 | §3.5 vs README | SHAP took "1.5–2 h" | README says 15–25 min; reconcile |
+| E5 | §3.5 vs README | SHAP took "1.5–2 h" | README says 15–25 min. The authors chose to keep 1.5–2 h in the paper. See HANDOVER §5 for the measured re-run time |
 | E6 | §3.1 | "Fault-labelled rows (2.83%) cluster into 35 contiguous same-state runs, 18 no-fault runs and 17 fault episodes" | the *record* segments into 35 runs (17 fault, 18 no-fault) |
 | E7 | References | "Ombiro, H., 2026" | the author is Z. Ombiro, and the entry is never cited in the text |
 | E8 | §4.3 note | "\|r\| ≥ .8 is conventionally large" | there is no such convention for rank-biserial r; drop it or cite one (common thresholds are .1/.3/.5) |
@@ -96,6 +96,7 @@ Table 11 shows the with-SMOTE condition only. Without SMOTE, the tier-scheme lea
 | E14 | §3.4 | accuracy is the "primary" metric | with 32.7 % prevalence the majority baseline already scores 0.673 accuracy (MCC 0); the inner search optimises macro-F1. Make MCC primary and report the baseline |
 
 ## C. Verified numbers (no change needed)
+All of the following, plus every new number in the arXiv text, are re-checked automatically by `review/verify_claims.py` (45 checks, all passing).
 * Table 2 (all eight counts and shares), 2,988,798 rows, 1 Oct 2021 – 13 Apr 2023, 559 days, 97.17 % / 2.83 %.
 * Subsample: 20,800 rows, 24 episodes (17 fault), 14,000 / 4,000 / 2,800, prevalence 32.7 %. Per-code episode rows sum exactly to the Table 2 counts.
 * Tables 7, 8 and 11 match `all_runs_summary.csv` cell by cell (mean and s.d. to 3 d.p.).
@@ -124,4 +125,4 @@ The `arxiv/` text removes these, states findings once, and puts hedges only wher
 * **R5:** a full ablation grid ({raw, raw−Eg, raw+derived, raw+temporal, all} × {SMOTE, none}).
 * **R6:** add trivial baselines (majority class; clock hour; single-feature `Va` threshold).
 * **R7:** exact software versions and hardware in Table 6.
-* **R8:** verify the 2025–2026 references (Hossen 2026, Zheng 2026, Gaaloul 2025, Khandeparkar 2025, Mouleloued 2025) and the description of Toche Tchio (2024) as a "near-identical seven-classifier roster". I could not check these offline.
+* **R8:** verify the 2025–2026 references (Gaaloul 2025, Khandeparkar 2025, Mouleloued 2025, Quiles-Cucarella 2025, Krishna Veni 2025). Crossref is blocked in this session. Toche Tchio (2024) **was verified** by web search: it compares Extra Trees with LR, kNN, SVM, DT, AdaBoost and RF, so the original description was fair, and the arXiv text now names those classifiers.
