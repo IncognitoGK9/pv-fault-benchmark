@@ -77,7 +77,7 @@ With `QUICK_TEST_MODE = False` (the paper-quality settings: 3 CV repeats,
 15-draw random search), `run_experiment.py` took 26,666 s (≈7.4 h) on the
 development machine (Table V in the paper), driven mostly by SVM under the
 3-class tier scheme and by Random Forest's wider ensemble sizes.
-`shap_analysis.py` adds roughly 15–25 more minutes, mostly spent on the
+`shap_analysis.py` adds roughly 1.5–2 more hours, mostly spent on the
 three models (kNN, SVM, MLP) that have no closed-form SHAP algorithm and
 fall back to a sampling-based explainer. If this is too slow on your
 machine, the easiest levers (all in `config.py`) are: lower `N_CV_REPEATS`

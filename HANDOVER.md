@@ -83,9 +83,9 @@ Run `python review/verify_claims.py`. Every line should print PASS. Each finding
 
 ## 5. SHAP runtime (author asked: keep 1.5–2 h, but check)
 * Paper (v2 and arXiv): "about 1.5–2 h". README: "15–25 min". These disagree.
-* Re-run in this session: the unmodified `shap_analysis.py` on a scratch copy, on a 4-vCPU / 15 GB cloud container (shap 0.54.1, scikit-learn 1.9.1, xgboost 3.4.1). Per-model times are logged in `review/shap_timing.log`.
-* **Measured total:** SHAP_TOTAL_PLACEHOLDER
-* Interpretation: SHAP_INTERP_PLACEHOLDER
+* Re-run in this session: the unmodified `shap_analysis.py` on a scratch copy, on a 4-vCPU / 15 GB cloud container (shap 0.54.1, scikit-learn 1.9.1, xgboost 3.4.1).
+* **Measured (partial):** Logistic Regression done at 5 s, kNN at 753 s (12.5 min), Decision Tree at 755 s. The run was then stopped during the SVM, at the author's request (15-min cap). SVM, MLP, Random Forest and XGBoost times were not measured.
+* Interpretation: kNN alone takes 12.5 min on 4 vCPUs. The SVM (same sampling explainer, slower predict_proba) and the MLP also need the sampling explainer, so a total of 1.5–2 h is plausible. The README's 15–25 min was not; it is now changed to 1.5–2 h to match the paper.
 
 ## 6. Decisions taken (author-confirmed in round 2)
 * SHAP runtime text: **"about 1.5–2 h"** (kept).
