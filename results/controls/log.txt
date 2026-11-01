@@ -1,0 +1,55 @@
+[06:55:21 +   0.0 min] Mode: FULL (3 repeats); settings from results/most_common_hyperparameters.json
+[06:55:21 +   0.0 min] Full benchmark: 20,800 rows (6,800 fault). Hour-matched: 15,023 rows (8,223 no-fault between 10:00 and 17:00)
+[06:55:21 +   0.0 min] Experiment 1a: full benchmark, episode-grouped folds
+[06:56:00 +   0.6 min]   1a full: repeat 1/3, fold 1/5 done
+[06:56:18 +   1.0 min]   1a full: repeat 1/3, fold 2/5 done
+[06:57:36 +   2.2 min]   1a full: repeat 1/3, fold 3/5 done
+[06:58:47 +   3.4 min]   1a full: repeat 1/3, fold 4/5 done
+[06:59:54 +   4.5 min]   1a full: repeat 1/3, fold 5/5 done
+[07:00:37 +   5.3 min]   1a full: repeat 2/3, fold 1/5 done
+[07:01:13 +   5.9 min]   1a full: repeat 2/3, fold 2/5 done
+[07:02:17 +   6.9 min]   1a full: repeat 2/3, fold 3/5 done
+[07:03:05 +   7.7 min]   1a full: repeat 2/3, fold 4/5 done
+[07:04:08 +   8.8 min]   1a full: repeat 2/3, fold 5/5 done
+[07:04:46 +   9.4 min]   1a full: repeat 3/3, fold 1/5 done
+[07:05:17 +   9.9 min]   1a full: repeat 3/3, fold 2/5 done
+[07:06:34 +  11.2 min]   1a full: repeat 3/3, fold 3/5 done
+[07:07:20 +  12.0 min]   1a full: repeat 3/3, fold 4/5 done
+[07:08:16 +  12.9 min]   1a full: repeat 3/3, fold 5/5 done
+[07:08:16 +  12.9 min] Experiment 1b: hour-matched benchmark, episode-grouped folds
+[07:08:37 +  13.3 min]   1b hour-matched: repeat 1/3, fold 1/5 done
+[07:09:04 +  13.7 min]   1b hour-matched: repeat 1/3, fold 2/5 done
+[07:09:22 +  14.0 min]   1b hour-matched: repeat 1/3, fold 3/5 done
+[07:09:36 +  14.2 min]   1b hour-matched: repeat 1/3, fold 4/5 done
+[07:09:59 +  14.6 min]   1b hour-matched: repeat 1/3, fold 5/5 done
+[07:10:16 +  14.9 min]   1b hour-matched: repeat 2/3, fold 1/5 done
+[07:10:44 +  15.4 min]   1b hour-matched: repeat 2/3, fold 2/5 done
+[07:10:59 +  15.6 min]   1b hour-matched: repeat 2/3, fold 3/5 done
+[07:11:18 +  15.9 min]   1b hour-matched: repeat 2/3, fold 4/5 done
+[07:11:43 +  16.4 min]   1b hour-matched: repeat 2/3, fold 5/5 done
+[07:11:58 +  16.6 min]   1b hour-matched: repeat 3/3, fold 1/5 done
+[07:12:26 +  17.1 min]   1b hour-matched: repeat 3/3, fold 2/5 done
+[07:12:48 +  17.4 min]   1b hour-matched: repeat 3/3, fold 3/5 done
+[07:13:04 +  17.7 min]   1b hour-matched: repeat 3/3, fold 4/5 done
+[07:13:20 +  18.0 min]   1b hour-matched: repeat 3/3, fold 5/5 done
+[07:13:20 +  18.0 min] Experiment 1c: SHAP rank of Va (tree and linear models)
+[07:13:46 +  18.4 min] Experiment 1 done. Spearman rank correlation of accuracy (full vs hour-matched): 0.14
+[07:13:47 +  18.4 min] Experiment 2 done
+[07:13:47 +  18.4 min] Experiment 3: random (episode-ignoring) split
+[07:13:59 +  18.6 min]   3 random split: repeat 1/3, fold 1/5 done
+[07:14:10 +  18.8 min]   3 random split: repeat 1/3, fold 2/5 done
+[07:14:21 +  19.0 min]   3 random split: repeat 1/3, fold 3/5 done
+[07:14:32 +  19.2 min]   3 random split: repeat 1/3, fold 4/5 done
+[07:14:43 +  19.4 min]   3 random split: repeat 1/3, fold 5/5 done
+[07:14:53 +  19.5 min]   3 random split: repeat 2/3, fold 1/5 done
+[07:15:06 +  19.7 min]   3 random split: repeat 2/3, fold 2/5 done
+[07:15:17 +  19.9 min]   3 random split: repeat 2/3, fold 3/5 done
+[07:15:29 +  20.1 min]   3 random split: repeat 2/3, fold 4/5 done
+[07:15:42 +  20.3 min]   3 random split: repeat 2/3, fold 5/5 done
+[07:15:54 +  20.5 min]   3 random split: repeat 3/3, fold 1/5 done
+[07:16:07 +  20.8 min]   3 random split: repeat 3/3, fold 2/5 done
+[07:16:19 +  21.0 min]   3 random split: repeat 3/3, fold 3/5 done
+[07:16:32 +  21.2 min]   3 random split: repeat 3/3, fold 4/5 done
+[07:16:45 +  21.4 min]   3 random split: repeat 3/3, fold 5/5 done
+[07:16:45 +  21.4 min] Experiment 3 done
+[07:16:45 +  21.4 min] CONTROLS DONE

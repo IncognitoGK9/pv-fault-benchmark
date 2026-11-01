@@ -1,0 +1,144 @@
+R1 FOLD AUDIT (main benchmark splitter, seeds 42 to 44)
+  Binary scheme: 4 of 15 outer test folds contain no no-fault episode (only fault rows).
+  Tier scheme:   2 of 15 outer test folds contain no no-fault episode.
+  In a fault-only fold MCC is undefined (scikit-learn returns 0), precision is 1 whenever any
+  fault is flagged, and AUC-ROC cannot be computed (NaN, skipped by the mean).
+
+R2 POOLED OUT-OF-FOLD METRICS, MAIN BENCHMARK (from Table VII counts, 62,400 predictions)
+  Model                     Acc   Prec    Rec   Spec    MCC
+  Logistic Regression     0.845  0.753  0.781  0.876  0.651
+  k-Nearest Neighbours    0.794  0.677  0.705  0.837  0.536
+  Decision Tree           0.855  0.777  0.782  0.891  0.671
+  SVM (RBF)               0.826  0.758  0.685  0.894  0.596
+  MLP                     0.791  0.670  0.710  0.830  0.533
+  Random Forest           0.875  0.846  0.754  0.933  0.709
+  XGBoost                 0.873  0.837  0.761  0.928  0.707
+
+R3 DATA AUDIT (no model)
+  Median sampling interval: 6 s, so the 5- and 10-sample windows span 30 s and 60 s.
+  Eg resets to zero inside overnight episodes 3 time(s); Spearman correlation of Eg with local hour (no-fault, daytime rows) = 0.77: a daily cumulative register.
+  PV-side voltage at comparable output (grid power >= 600 W):
+    no fault  median 180 V (IQR 175 to 185), 3,377 rows, 5 episodes
+    fault     median 151 V (IQR 147 to 156), 4,338 rows, 13 episodes
+  Va drop by fault code at grid power >= 600 W (against the no-fault median):
+    code 2.1: median 153 V, drop 15.0% (203 rows)
+    code 2.2: median 126 V, drop 30.0% (186 rows)
+    code 3.1: median 156 V, drop 13.3% (1067 rows)
+    code 3.2: median 150 V, drop 16.7% (1595 rows)
+    code 4.0: median 148 V, drop 17.8% (1287 rows)
+  Rows with grid power <= 5 W: no fault 807, fault 800
+  Single in-sample Va threshold (not cross-validated): Va < 160 V acc 0.901, Va < 165 V acc 0.919, Va < 170 V acc 0.904, Va < 175 V acc 0.857
+  Per-episode table: R3_episode_table.csv
+
+R4/R6 GROUPED FOLDS (paper protocol), MODAL SETTINGS, 29 FEATURES, PLUS Va STUMP
+  Model                     Acc    MCC    AUC |  Acc2c  MCC2c |   pAcc   pMCC
+  Logistic Regression     0.818  0.481  0.902 |  0.871  0.656 |  0.842  0.646
+  k-Nearest Neighbours    0.768  0.372  0.811 |  0.816  0.507 |  0.790  0.523
+  Decision Tree           0.856  0.527  0.853 |  0.907  0.718 |  0.890  0.747
+  SVM (RBF)               0.815  0.449  0.882 |  0.869  0.612 |  0.847  0.644
+  MLP                     0.766  0.405  0.819 |  0.824  0.552 |  0.806  0.560
+  Random Forest           0.839  0.528  0.858 |  0.905  0.720 |  0.876  0.712
+  XGBoost                 0.837  0.527  0.884 |  0.907  0.718 |  0.881  0.725
+  Va stump                0.876  0.575  0.894 |  0.939  0.784 |  0.910  0.793
+  Acc/MCC/AUC: mean over all folds (AUC over two-class folds only); 2c: two-class folds only; p: pooled out-of-fold.
+  Va stump thresholds learned per fold: 161.5 to 168.5 V
+  accuracy: Wilcoxon + Holm significant: k-Nearest Neighbours vs Random Forest (adj p 0.009); k-Nearest Neighbours vs Va stump (adj p 0.023); MLP vs Random Forest (adj p 0.030)
+  accuracy: corrected t-test + Holm significant: none
+  mcc: Wilcoxon + Holm significant: none
+  mcc: corrected t-test + Holm significant: none
+  accuracy Logistic Regression vs Decision Tree: P(a better) 0.20, P(equivalent) 0.11, P(b better) 0.69
+  accuracy Logistic Regression vs Random Forest: P(a better) 0.29, P(equivalent) 0.13, P(b better) 0.58
+  accuracy Logistic Regression vs XGBoost: P(a better) 0.33, P(equivalent) 0.11, P(b better) 0.55
+  accuracy Logistic Regression vs Va stump: P(a better) 0.04, P(equivalent) 0.06, P(b better) 0.89
+  accuracy k-Nearest Neighbours vs Va stump: P(a better) 0.03, P(equivalent) 0.03, P(b better) 0.94
+  accuracy Decision Tree vs Random Forest: P(a better) 0.57, P(equivalent) 0.17, P(b better) 0.26
+  accuracy Decision Tree vs XGBoost: P(a better) 0.62, P(equivalent) 0.21, P(b better) 0.17
+  accuracy Decision Tree vs Va stump: P(a better) 0.19, P(equivalent) 0.19, P(b better) 0.62
+  accuracy SVM (RBF) vs Va stump: P(a better) 0.04, P(equivalent) 0.06, P(b better) 0.91
+  accuracy MLP vs Va stump: P(a better) 0.07, P(equivalent) 0.04, P(b better) 0.89
+  accuracy Random Forest vs XGBoost: P(a better) 0.44, P(equivalent) 0.15, P(b better) 0.41
+  accuracy Random Forest vs Va stump: P(a better) 0.15, P(equivalent) 0.12, P(b better) 0.73
+  accuracy XGBoost vs Va stump: P(a better) 0.12, P(equivalent) 0.12, P(b better) 0.76
+
+R5 GROUPED FOLDS WITHOUT Eg (28 FEATURES)
+  Model                     Acc    MCC    AUC |  Acc2c  MCC2c |   pAcc   pMCC
+  Logistic Regression     0.828  0.497  0.904 |  0.885  0.678 |  0.853  0.669
+  k-Nearest Neighbours    0.790  0.406  0.838 |  0.847  0.553 |  0.821  0.585
+  Decision Tree           0.867  0.552  0.883 |  0.925  0.752 |  0.898  0.766
+  SVM (RBF)               0.827  0.474  0.894 |  0.886  0.647 |  0.860  0.674
+  MLP                     0.833  0.497  0.846 |  0.897  0.678 |  0.866  0.688
+  Random Forest           0.848  0.542  0.891 |  0.918  0.739 |  0.887  0.737
+  XGBoost                 0.856  0.547  0.896 |  0.925  0.746 |  0.891  0.749
+  Acc/MCC/AUC: mean over all folds (AUC over two-class folds only); 2c: two-class folds only; p: pooled out-of-fold.
+  Change in pooled MCC when Eg is removed: Logistic Regression +0.022, k-Nearest Neighbours +0.062, Decision Tree +0.019, SVM (RBF) +0.030, MLP +0.128, Random Forest +0.025, XGBoost +0.024
+
+R7 BALANCED-EPISODE FOLDS (every test fold has both classes)
+  Model                     Acc    MCC    AUC |  Acc2c  MCC2c |   pAcc   pMCC
+  Logistic Regression     0.848  0.674  0.913 |  0.848  0.674 |  0.853  0.669
+  k-Nearest Neighbours    0.806  0.556  0.807 |  0.806  0.556 |  0.813  0.573
+  Decision Tree           0.874  0.710  0.809 |  0.874  0.710 |  0.882  0.726
+  SVM (RBF)               0.854  0.660  0.896 |  0.854  0.660 |  0.856  0.664
+  MLP                     0.791  0.548  0.796 |  0.791  0.548 |  0.805  0.559
+  Random Forest           0.880  0.728  0.878 |  0.880  0.728 |  0.887  0.739
+  XGBoost                 0.888  0.740  0.848 |  0.888  0.740 |  0.893  0.752
+  Va stump                0.913  0.800  0.886 |  0.913  0.800 |  0.917  0.809
+  Acc/MCC/AUC: mean over all folds (AUC over two-class folds only); 2c: two-class folds only; p: pooled out-of-fold.
+  accuracy: Wilcoxon + Holm significant: k-Nearest Neighbours vs Decision Tree (adj p 0.010); k-Nearest Neighbours vs Random Forest (adj p 0.002); k-Nearest Neighbours vs XGBoost (adj p 0.008); k-Nearest Neighbours vs Va stump (adj p 0.002); SVM (RBF) vs Va stump (adj p 0.034); MLP vs Random Forest (adj p 0.014); MLP vs Va stump (adj p 0.008)
+  accuracy: corrected t-test + Holm significant: none
+  mcc: Wilcoxon + Holm significant: k-Nearest Neighbours vs Decision Tree (adj p 0.021); k-Nearest Neighbours vs Random Forest (adj p 0.002); k-Nearest Neighbours vs XGBoost (adj p 0.005); k-Nearest Neighbours vs Va stump (adj p 0.002); SVM (RBF) vs Va stump (adj p 0.034); MLP vs Random Forest (adj p 0.021); MLP vs Va stump (adj p 0.008)
+  mcc: corrected t-test + Holm significant: none
+  accuracy Logistic Regression vs Decision Tree: P(a better) 0.27, P(equivalent) 0.12, P(b better) 0.61
+  accuracy Logistic Regression vs Random Forest: P(a better) 0.22, P(equivalent) 0.12, P(b better) 0.66
+  accuracy Logistic Regression vs XGBoost: P(a better) 0.17, P(equivalent) 0.11, P(b better) 0.72
+  accuracy Logistic Regression vs Va stump: P(a better) 0.06, P(equivalent) 0.06, P(b better) 0.88
+  accuracy k-Nearest Neighbours vs Va stump: P(a better) 0.01, P(equivalent) 0.02, P(b better) 0.97
+  accuracy Decision Tree vs Random Forest: P(a better) 0.31, P(equivalent) 0.24, P(b better) 0.45
+  accuracy Decision Tree vs XGBoost: P(a better) 0.14, P(equivalent) 0.29, P(b better) 0.57
+  accuracy Decision Tree vs Va stump: P(a better) 0.09, P(equivalent) 0.12, P(b better) 0.80
+  accuracy SVM (RBF) vs Va stump: P(a better) 0.06, P(equivalent) 0.07, P(b better) 0.88
+  accuracy MLP vs Va stump: P(a better) 0.05, P(equivalent) 0.03, P(b better) 0.92
+  accuracy Random Forest vs XGBoost: P(a better) 0.27, P(equivalent) 0.25, P(b better) 0.47
+  accuracy Random Forest vs Va stump: P(a better) 0.10, P(equivalent) 0.14, P(b better) 0.76
+  accuracy XGBoost vs Va stump: P(a better) 0.10, P(equivalent) 0.18, P(b better) 0.72
+
+R8 RANDOM SPLIT IGNORING EPISODES, ALL SEVEN CLASSIFIERS (against R4 grouped folds)
+  Logistic Regression    grouped 0.818  random 0.893  inflation +7.6 points
+  k-Nearest Neighbours   grouped 0.768  random 0.983  inflation +21.5 points
+  Decision Tree          grouped 0.856  random 0.950  inflation +9.4 points
+  SVM (RBF)              grouped 0.815  random 0.921  inflation +10.6 points
+  MLP                    grouped 0.766  random 0.981  inflation +21.4 points
+  Random Forest          grouped 0.839  random 0.987  inflation +14.8 points
+  XGBoost                grouped 0.837  random 0.955  inflation +11.8 points
+
+R4 PER-FAULT-CODE RECALL (specificity for code 0.0), pooled over repeats
+  code  Logistic R k-Nearest  Decision T  SVM (RBF)        MLP Random For    XGBoost   Va stump
+   0.0       0.870      0.842      0.933      0.911      0.854      0.935      0.933      0.960
+   1.0       0.696      0.000      1.000      0.170      0.335      0.501      1.000      1.000
+   2.1       1.000      0.988      0.997      1.000      0.997      0.999      0.999      0.978
+   2.2       1.000      0.993      1.000      0.997      1.000      1.000      1.000      1.000
+   2.3       0.000      0.019      0.008      0.003      0.064      0.007      0.007      0.003
+   3.1       0.961      0.895      0.966      0.960      0.787      0.947      0.969      0.916
+   3.2       0.999      0.995      1.000      0.995      0.990      1.000      1.000      1.000
+   4.0       0.614      0.589      0.547      0.590      0.597      0.595      0.449      0.607
+
+R4 PER-EPISODE RECALL (fault episodes) with episode conditions
+   ep code date       start   Pg W  Va V  Logist k-Near Decisi SVM (R    MLP Random XGBoos Va stu
+    1  2.1 2022-02-08 13:03    614   156    1.00   0.99   1.00   1.00   1.00   1.00   1.00   0.98
+    3  2.2 2022-02-09 12:13    548   126    1.00   0.99   1.00   1.00   1.00   1.00   1.00   1.00
+    5  2.3 2022-02-11 14:31    217   181    0.00   0.02   0.01   0.00   0.06   0.01   0.01   0.00
+    7  1.0 2022-02-14 14:02      0     0    1.00   0.00   1.00   0.33   0.67   1.00   1.00   1.00
+    9  1.0 2022-02-15 11:12      0   150    0.39   0.00   1.00   0.01   0.00   0.00   1.00   1.00
+   11  4.0 2022-02-18 14:51    818   145    1.00   0.99   0.67   1.00   1.00   1.00   0.16   1.00
+   13  3.2 2022-02-24 12:34   1156   147    1.00   0.98   1.00   0.98   1.00   1.00   1.00   1.00
+   15  3.2 2022-03-01 10:52   1118   148    1.00   1.00   1.00   1.00   1.00   1.00   1.00   1.00
+   17  4.0 2022-03-09 12:14   1110   144    1.00   0.93   1.00   1.00   0.99   1.00   1.00   1.00
+   19  4.0 2022-03-16 16:12    179   169    0.07   0.16   0.07   0.03   0.00   0.00   0.09   0.06
+   21  4.0 2022-03-25 12:03    830   154    0.99   0.86   0.99   0.92   0.99   0.97   0.99   0.98
+   23  4.0 2022-04-19 14:03   1129   176    0.02   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+   25  3.2 2022-04-25 12:17   1186   154    1.00   1.00   1.00   1.00   0.96   1.00   1.00   1.00
+   27  3.2 2022-04-27 10:52   1123   150    1.00   1.00   1.00   1.00   1.00   1.00   1.00   1.00
+   29  3.1 2022-05-10 10:14   1050   151    1.00   1.00   1.00   1.00   1.00   1.00   1.00   1.00
+   31  3.1 2022-05-16 10:02   1058   161    0.88   0.69   0.90   0.88   0.36   0.84   0.91   0.75
+   33  3.1 2022-05-19 10:19   1076   156    1.00   1.00   1.00   1.00   1.00   1.00   1.00   1.00
+
+Total time: 15.4 min

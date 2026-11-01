@@ -1,0 +1,41 @@
+CONTROL EXPERIMENTS: PLAIN-LANGUAGE SUMMARY
+Mode: FULL (3 repeats x 5 folds); fixed modal settings, SMOTE in training folds.
+
+EXPERIMENT 1: does the result depend on time of day?
+  Model                 Acc full  Acc matched  MCC full  MCC matched
+  LogisticRegression       0.818        0.853     0.481        0.594
+  kNN                      0.768        0.740     0.372        0.405
+  DecisionTree             0.856        0.785     0.527        0.458
+  SVM                      0.815        0.840     0.449        0.570
+  MLP                      0.766        0.796     0.405        0.506
+  RandomForest             0.839        0.834     0.528        0.561
+  XGBoost                  0.837        0.846     0.527        0.590
+  HourOnly                 0.604        0.550     0.191        0.114
+  Majority-class accuracy: full 0.673, matched 0.547
+  Ranking full:    DecisionTree, RandomForest, XGBoost, LogisticRegression, SVM, kNN, MLP
+  Ranking matched: LogisticRegression, XGBoost, SVM, RandomForest, MLP, DecisionTree, kNN
+  Spearman rank correlation: 0.14
+  Va SHAP rank, DecisionTree: full 1, matched 1
+  Va SHAP rank, RandomForest: full 1, matched 1
+  Va SHAP rank, XGBoost: full 1, matched 1
+  Va SHAP rank, LogisticRegression: full 2, matched 2
+
+EXPERIMENT 2: which differences survive tests built for correlated folds? (full benchmark)
+  accuracy: significant after corrected t-test + Holm: none
+  mcc: significant after corrected t-test + Holm: none
+  LogisticRegression vs DecisionTree: P(practically equivalent, |diff|<=0.01) = 0.11
+  LogisticRegression vs RandomForest: P(practically equivalent, |diff|<=0.01) = 0.13
+  LogisticRegression vs XGBoost: P(practically equivalent, |diff|<=0.01) = 0.11
+  DecisionTree vs RandomForest: P(practically equivalent, |diff|<=0.01) = 0.17
+  DecisionTree vs XGBoost: P(practically equivalent, |diff|<=0.01) = 0.21
+  RandomForest vs XGBoost: P(practically equivalent, |diff|<=0.01) = 0.15
+
+EXPERIMENT 3: does ignoring episodes inflate accuracy?
+  LogisticRegression   grouped 0.818  random 0.893  inflation +7.5 points
+  kNN                  grouped 0.768  random 0.983  inflation +21.5 points
+  DecisionTree         grouped 0.856  random 0.950  inflation +9.4 points
+  MLP                  grouped 0.766  random 0.981  inflation +21.5 points
+  RandomForest         grouped 0.839  random 0.987  inflation +14.8 points
+  XGBoost              grouped 0.837  random 0.955  inflation +11.8 points
+
+Total time: 21.4 min

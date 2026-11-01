@@ -1,0 +1,14 @@
+[09:21:55 +   0.0 min] Mode: FULL; 20,800 rows, 29 features, 24 episodes; settings from results/most_common_hyperparameters.json
+[09:21:55 +   0.0 min] R1 fold audit
+[09:21:55 +   0.0 min] R2 pooled metrics from saved confusion matrices
+[09:21:55 +   0.0 min] R3 data audit
+[09:21:55 +   0.0 min] R4 grouped, 29 features (+ R6 Va stump): 8 models x 15 folds
+[09:25:26 +   3.5 min] R4 grouped, 29 features (+ R6 Va stump): done
+[09:25:26 +   3.5 min] R5 grouped, without Eg: 7 models x 15 folds
+[09:28:54 +   7.0 min] R5 grouped, without Eg: done
+[09:28:54 +   7.0 min] R7 balanced-episode folds: 8 models x 15 folds
+[09:32:52 +  11.0 min] R7 balanced-episode folds: done
+[09:32:52 +  11.0 min] R8 random split ignoring episodes: 7 models x 15 folds
+[09:37:19 +  15.4 min] R8 random split ignoring episodes: done
+[09:37:19 +  15.4 min] R9 figures
+[09:37:21 +  15.4 min] REVISION RUNS DONE

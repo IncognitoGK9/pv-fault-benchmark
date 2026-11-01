@@ -52,7 +52,7 @@ def _mode_params(param_dicts):
 
 
 def main():
-    """Run all 20 (model x scheme x SMOTE) conditions under nested CV and
+    """Run all 28 (model x scheme x SMOTE) conditions under nested CV and
     write every results/*.json and results/all_runs_summary.csv artefact
     the paper's Results section (Section VI) and figures depend on.
     """
@@ -108,14 +108,6 @@ def main():
                 }
     with open(f"{config.RESULTS_DIR}/summary_metrics.json", "w") as f:
         json.dump(summary, f, indent=2)
-
-    # Per-fold metric values (15 per run), needed to recompute any paired
-    # test (Wilcoxon, Friedman, corrected t-test) without re-running the CV.
-    per_fold = {s: {k: {mn: {kk: vv for kk, vv in agg.items() if kk.endswith("_values")}
-                        for mn, agg in all_aggs[s][k].items()}
-                    for k in all_aggs[s]} for s in all_aggs}
-    with open(f"{config.RESULTS_DIR}/per_fold_metrics.json", "w") as f:
-        json.dump(per_fold, f, indent=2)
 
     # ---- Selected hyperparameters per outer fold, plus the mode across folds ----
     # (a byproduct of the RandomizedSearchCV already run above, persisted
@@ -185,7 +177,22 @@ def main():
             "dtree_importance": dt_importance,
         }, f, indent=2)
 
-    # ---- Raw fold-level metrics for every one of the 20 runs (tables/plots) ----
+    # ---- Per-fold scalar metrics for every run, saved so that confidence
+    # intervals and tests for correlated folds (corrected resampled t-test,
+    # Bayesian correlated t-test) can be computed without retraining ----
+    per_fold = {}
+    for sch, d1 in all_results.items():
+        for sm, d2 in d1.items():
+            for mn, frs in d2.items():
+                per_fold.setdefault(sch, {}).setdefault(sm, {})[mn] = [
+                    {k: float(v) for k, v in fr.items()
+                     if isinstance(v, (int, float)) and not isinstance(v, bool)}
+                    for fr in frs
+                ]
+    with open(f"{config.RESULTS_DIR}/per_fold_metrics.json", "w") as f:
+        json.dump(per_fold, f, indent=2)
+
+    # ---- Raw fold-level metrics for every one of the 28 runs (tables/plots) ----
     rows = []
     for scheme in all_aggs:
         for smote_key in all_aggs[scheme]:
