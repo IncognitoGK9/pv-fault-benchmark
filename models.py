@@ -59,9 +59,9 @@ def get_param_grid(name):
 
     Keys are prefixed `clf__` to match the `clf` step name in the
     imbalanced-learn Pipeline built by pipeline.build_pipeline(). Grid sizes
-    range from 6 (Logistic Regression, exhaustive) to 108 (XGBoost)
-    combinations, wide enough to support a defensible claim that each model
-    is adequately tuned.
+    range from 6 (Logistic Regression, exhaustive) to 324 (XGBoost)
+    combinations. With 15 random draws per outer fold, coverage is unequal:
+    100% for Logistic Regression but 4.6% for XGBoost (paper Table IV).
     """
     if name == "LogisticRegression":
         return {"clf__C": [0.001, 0.01, 0.1, 1, 10, 100], "clf__penalty": ["l2"]}

@@ -139,11 +139,13 @@ def main():
         "full_dataset_stats": full_stats,
         "subsample_n_rows": int(len(sub)),
         "subsample_fault_prevalence": float((sub["fault_bin"] == 1).mean()),
-        # Count rows per tier (the earlier per-code comprehension keyed on the
-        # tier name and so kept only the LAST code of each tier).
+        # Sum rows over every fault code mapped to the same tier. A dict
+        # comprehension keyed by tier name would let later codes overwrite
+        # earlier ones (it reported 2,000 Severe and 1,600 Constant-Partial
+        # instead of 2,800 and 4,000).
         "subsample_tier_counts": {
-            config.TIER_NAMES[t]: int(sub["Fault"].map(config.TIER_MAP).eq(t).sum())
-            for t in sorted(config.TIER_NAMES)
+            name: int(sub["Fault"].map(config.TIER_MAP).map(config.TIER_NAMES).eq(name).sum())
+            for name in sorted(set(config.TIER_NAMES[config.TIER_MAP[k]] for k in sub["Fault"].unique()))
         },
         "n_episodes_kept": int(sub["episode_id"].nunique()),
         "n_fault_episodes_kept": int(sub.groupby("episode_id")["fault_bin"].first().sum()),

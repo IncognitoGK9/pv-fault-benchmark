@@ -1,4 +1,4 @@
-# Model_comparison — PV Shading-Fault Classification (Réunion dataset)
+# PV Shading-Fault Classification Benchmark (Réunion dataset)
 
 Classical-ML benchmark on the real Réunion domestic rooftop PV plant
 electrical-production dataset (Graillet et al., 2022, *Data in Brief*,
@@ -63,21 +63,15 @@ python feature_ablation_rf.py # raw-vs-engineered feature ablation
                                #   results/feature_ablation_rf.json
 
 python visualize.py           # builds figures/*.png from the results/ files
-                               #   (note: its feature-importance figure is the
-                               #   legacy LR-coefficient / DT-importance chart)
-
-python review/fig_shap_normalised.py  # paper Fig. 3: per-model normalised SHAP shares
-python review/reanalysis.py   # post-hoc checks used in the arXiv version: Holm
-                               #   correction, confound probe, per-episode recall
 ```
 
 ### Measured runtime
 
 With `QUICK_TEST_MODE = False` (the paper-quality settings: 3 CV repeats,
 15-draw random search), `run_experiment.py` took 26,666 s (≈7.4 h) on the
-development machine (Table V in the paper), driven mostly by SVM under the
+development machine (Table VI in the paper), driven mostly by SVM under the
 3-class tier scheme and by Random Forest's wider ensemble sizes.
-`shap_analysis.py` adds roughly 1.5–2 more hours, mostly spent on the
+`shap_analysis.py` adds roughly 1.5 to 2 h on the development machine (paper Section V-C), mostly spent on the
 three models (kNN, SVM, MLP) that have no closed-form SHAP algorithm and
 fall back to a sampling-based explainer. If this is too slow on your
 machine, the easiest levers (all in `config.py`) are: lower `N_CV_REPEATS`
@@ -110,7 +104,7 @@ things follow from that:
    and the full-dataset statistics (row counts, date range, per-fault-code
    counts) are saved to `data/subsample_metadata.json` before any capping,
    precisely so the paper can report the true class balance alongside the
-   subsampling procedure. The paper's Section III.A also states directly why
+   subsampling procedure. The paper's Section III-A also states directly why
    subsampling is preferred here over alternatives such as a weighted loss
    function or a balanced-bagging ensemble (neither solves the runtime
    problem across all seven model families) or distributed/chunked training
@@ -124,7 +118,7 @@ things follow from that:
   documented fault taxonomy (Graillet et al., Table 3): No-Fault / Constant
   Partial Shading (codes 2.1–3.2) / Severe (uniform shading, code 1, and
   intermittent shading, code 4). This grouping is a stated modelling choice,
-  not a natural constant — see the paper's Section III.C.
+  not a natural constant — see the paper's Section III-C.
 
 ## Files
 
@@ -141,9 +135,12 @@ things follow from that:
 | `shap_analysis.py` | Cross-model SHAP feature attribution — run after `run_experiment.py` |
 | `fault_type_error_analysis.py` | Per-fault-code and per-tier error breakdown (Random Forest only) |
 | `feature_ablation_rf.py` | Raw-vs-engineered feature ablation (Random Forest only) |
-| `visualize.py` | Builds `figures/*.png` from `results/` (the SHAP figure is built by `review/fig_shap_normalised.py`) |
-| `review/` | Hostile-review report, update notes, post-hoc reanalysis scripts and outputs |
-| `arxiv/` | LaTeX source, figures and compiled PDF of the arXiv preprint |
+| `visualize.py` | Builds `figures/*.png` from `results/` (and `shap_importance.json`) |
+| `control_experiments.py` | Hour-matched benchmark, corrected resampled and Bayesian correlated t-tests, random-split control |
+| `revision_runs.py` | Fold audit, pooled metrics, data audit, voltage-threshold baseline, per-episode recall, Eg-removed and balanced-fold checks, complete random-split control |
+| `paper_figures_revision.py` | Builds the per-episode recall, grouped-versus-random and voltage-versus-power figures from `results/revision/` |
+| `run_all.sh`, `start_runs.sh`, `monitor.sh`, `preflight.py` | Build a clean environment outside cloud-synced folders and run the control experiments in the background |
+| `start_revision.sh` | Runs `revision_runs.py` in the background with the same environment |
 
 ## Output (`results/`)
 
@@ -155,13 +152,27 @@ things follow from that:
 - `feature_importance.json` — legacy: Logistic Regression coefficients + Decision Tree importances (not directly comparable to each other — kept for backward compatibility only)
 - `shap_importance.json` — the primary, cross-model-comparable feature-attribution measure (written by `shap_analysis.py`)
 - `best_hyperparameters.json` — the winning `RandomizedSearchCV` configuration for every outer fold, model, and condition
-- `most_common_hyperparameters.json` — the modal (most frequently selected) configuration per model/condition across the outer folds; underlies paper Table IV-b
-- `feature_ablation_rf.json` — raw-vs-engineered feature ablation (Table X)
-- `fault_type_error_analysis.json` — per-fault-code and per-tier breakdown (Tables XI, XI-b)
-- `per_fold_metrics.json` — per-fold values (written by future runs; absent for the stored run)
+- `most_common_hyperparameters.json` — the modal (most frequently selected) configuration per model/condition across the outer folds; underlies paper Table V
+- `feature_ablation_rf.json` — raw-vs-engineered feature ablation (Table XII)
+- `fault_type_error_analysis.json` — per-fault-code and per-tier breakdown (Tables XIII and XIV)
 - `figures/*.png` — all paper figures
 
 All of the above are already populated in this repository from the run
-reported in the paper (Table V gives the software/hardware environment and
+reported in the paper (Table VI gives the software/hardware environment and
 measured runtime); re-running the scripts above with the same
 `RANDOM_SEED` (42) reproduces them.
+
+## Control and robustness analyses
+
+These analyses use the modal hyperparameters of the main benchmark (`results/most_common_hyperparameters.json`, paper Table V) and the same outer protocol (3 repeats x 5 folds, seed 42 + repeat). They do not repeat the nested search.
+
+```
+python control_experiments.py      # about 20 min; writes results/controls/
+python revision_runs.py            # about 15 to 40 min; writes results/revision/ and figures/revision/
+python paper_figures_revision.py   # writes figures/revision/fig6..fig8 from results/revision/
+```
+
+- `results/controls/`: hour-matched benchmark (time-of-day check), corrected resampled t-test with Holm adjustment and Bayesian correlated t-test, and a random split that ignores episodes. `SUMMARY.txt` gives plain-language answers.
+- `results/revision/`: fold composition of the main benchmark (4 of 15 binary test folds contain no no-fault episode), pooled out-of-fold metrics, per-episode data audit, a one-split threshold on PV-side voltage as a reference baseline, per-episode and per-fault-code recall for all seven classifiers, the benchmark without the cumulative energy register Eg, a fold design with both classes in every test fold, and the random-split control for all seven classifiers. `SUMMARY.txt` gives plain-language answers; `oof_predictions.npz` holds every out-of-fold prediction.
+
+XGBoost results can differ in the third decimal across processor architectures; the files here were produced on the machine described in Table VI. `results/environment_freeze.txt` lists the exact package versions.

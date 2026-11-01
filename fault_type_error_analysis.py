@@ -22,9 +22,9 @@ hyperparameter search (fixed modal configuration, Table IV-b):
 
   2. Genuine multiclass Precision/Recall/F1 per TIER class (No-Fault,
      Constant-Partial-Shading, Severe -- the paper's existing three-tier
-     scheme, Section III.C), using the SAME modal Random Forest
-     hyperparameters as the tier+SMOTE condition already reported in
-     Table IX. Precision is only well-defined in a genuine multiclass
+     scheme, Section III.C), using the fixed BINARY-scheme modal Random
+     Forest hyperparameters (RF_FIXED_PARAMS below, 300 trees); the
+     tier+SMOTE modal setting differs only in using 200 trees. Precision is only well-defined in a genuine multiclass
      setting, which is why this is reported at the tier level (mapping:
      Severe = Uniform shading [1.0] + Intermittent partial shading [4.0];
      Constant-Partial-Shading = codes 2.1/2.2/2.3/3.1/3.2) rather than

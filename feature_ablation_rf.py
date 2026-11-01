@@ -2,9 +2,10 @@
 feature_ablation_rf.py
 
 Supplementary analysis (NOT part of the main 28-run benchmark): does the
-22-column engineered-feature block (4 derived instantaneous + 16
-rolling-window + 2 rate-of-change; features.py) actually help Random
-Forest, relative to the 7 raw electrical channels alone?
+engineered features (features.py) help Random Forest, relative to the 7
+raw electrical channels alone? Configuration B uses the 18-column temporal
+block (16 rolling-window + 2 rate-of-change); the 4 derived instantaneous
+features appear only in configuration C, so they are not isolated.
 
 Design constraints (deliberate):
   - Random Forest ONLY (the single best-performing model in the primary

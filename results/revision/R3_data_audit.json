@@ -1,0 +1,62 @@
+{
+  "median_sampling_interval_s": 6.0,
+  "rolling_windows_s": {
+    "5": 30.0,
+    "10": 60.0
+  },
+  "Va_by_class_Pg_ge_600": {
+    "0": {
+      "rows": 3377,
+      "episodes": 5,
+      "median": 180.0,
+      "q25": 175.0,
+      "q75": 185.0
+    },
+    "1": {
+      "rows": 4338,
+      "episodes": 13,
+      "median": 151.0,
+      "q25": 147.0,
+      "q75": 156.0
+    }
+  },
+  "rows_Pg_le_5W": {
+    "0": 807,
+    "1": 800
+  },
+  "Eg_reset_count_overnight_episodes": 3,
+  "Eg_spearman_with_local_hour_no_fault_daytime": 0.7722620460927049,
+  "Va_threshold_rule_in_sample": {
+    "160": 0.9010096153846154,
+    "165": 0.9191826923076923,
+    "170": 0.9038461538461539,
+    "175": 0.8570192307692308
+  },
+  "Va_drop_by_code_Pg_ge_600": {
+    "2.1": {
+      "median_Va_Pg_ge_600": 153.0,
+      "drop_pct_vs_no_fault": 15.000000000000002,
+      "rows": 203
+    },
+    "2.2": {
+      "median_Va_Pg_ge_600": 126.0,
+      "drop_pct_vs_no_fault": 30.000000000000004,
+      "rows": 186
+    },
+    "3.1": {
+      "median_Va_Pg_ge_600": 156.0,
+      "drop_pct_vs_no_fault": 13.33333333333333,
+      "rows": 1067
+    },
+    "3.2": {
+      "median_Va_Pg_ge_600": 150.0,
+      "drop_pct_vs_no_fault": 16.666666666666664,
+      "rows": 1595
+    },
+    "4.0": {
+      "median_Va_Pg_ge_600": 148.0,
+      "drop_pct_vs_no_fault": 17.777777777777782,
+      "rows": 1287
+    }
+  }
+}

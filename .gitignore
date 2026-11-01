@@ -1,1 +1,10 @@
 __pycache__/
+*.pyc
+.DS_Store
+venv/
+*.orig
+results/logs/
+results/revision_quick/
+results/controls_quick/
+figures/revision_quick/
+data/dt2_electrical_production_inverter_1_with_faults.csv

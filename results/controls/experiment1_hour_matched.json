@@ -1,0 +1,297 @@
+{
+  "full": {
+    "LogisticRegression": {
+      "accuracy": 0.818,
+      "mcc": 0.481
+    },
+    "kNN": {
+      "accuracy": 0.768,
+      "mcc": 0.372
+    },
+    "DecisionTree": {
+      "accuracy": 0.856,
+      "mcc": 0.527
+    },
+    "SVM": {
+      "accuracy": 0.815,
+      "mcc": 0.449
+    },
+    "MLP": {
+      "accuracy": 0.766,
+      "mcc": 0.405
+    },
+    "RandomForest": {
+      "accuracy": 0.839,
+      "mcc": 0.528
+    },
+    "XGBoost": {
+      "accuracy": 0.837,
+      "mcc": 0.527
+    },
+    "HourOnly": {
+      "accuracy": 0.604,
+      "mcc": 0.191
+    }
+  },
+  "hour_matched": {
+    "LogisticRegression": {
+      "accuracy": 0.853,
+      "mcc": 0.594
+    },
+    "kNN": {
+      "accuracy": 0.74,
+      "mcc": 0.405
+    },
+    "DecisionTree": {
+      "accuracy": 0.785,
+      "mcc": 0.458
+    },
+    "SVM": {
+      "accuracy": 0.84,
+      "mcc": 0.57
+    },
+    "MLP": {
+      "accuracy": 0.796,
+      "mcc": 0.506
+    },
+    "RandomForest": {
+      "accuracy": 0.834,
+      "mcc": 0.561
+    },
+    "XGBoost": {
+      "accuracy": 0.846,
+      "mcc": 0.59
+    },
+    "HourOnly": {
+      "accuracy": 0.55,
+      "mcc": 0.114
+    }
+  },
+  "majority_accuracy": {
+    "full": 0.6730769230769231,
+    "hour_matched": 0.5473607135725221
+  },
+  "ranking_full": [
+    "DecisionTree",
+    "RandomForest",
+    "XGBoost",
+    "LogisticRegression",
+    "SVM",
+    "kNN",
+    "MLP"
+  ],
+  "ranking_hour_matched": [
+    "LogisticRegression",
+    "XGBoost",
+    "SVM",
+    "RandomForest",
+    "MLP",
+    "DecisionTree",
+    "kNN"
+  ],
+  "spearman_accuracy_rank": 0.14285714285714288,
+  "shap_full": {
+    "DecisionTree": {
+      "Va_rank": 1,
+      "top5": [
+        [
+          "Va",
+          0.651
+        ],
+        [
+          "Eg",
+          0.184
+        ],
+        [
+          "ratio_Pg_VaIa",
+          0.089
+        ],
+        [
+          "Vg_rmean5",
+          0.076
+        ],
+        [
+          "Ia",
+          0.0
+        ]
+      ]
+    },
+    "RandomForest": {
+      "Va_rank": 1,
+      "top5": [
+        [
+          "Va",
+          0.228
+        ],
+        [
+          "volt_dev",
+          0.167
+        ],
+        [
+          "ratio_Ig_Ia",
+          0.093
+        ],
+        [
+          "Vg_rmean10",
+          0.058
+        ],
+        [
+          "Vg",
+          0.054
+        ]
+      ]
+    },
+    "XGBoost": {
+      "Va_rank": 1,
+      "top5": [
+        [
+          "Va",
+          0.549
+        ],
+        [
+          "Eg",
+          0.151
+        ],
+        [
+          "volt_dev",
+          0.054
+        ],
+        [
+          "ratio_Pg_VaIa",
+          0.048
+        ],
+        [
+          "Vg_rmean10",
+          0.048
+        ]
+      ]
+    },
+    "LogisticRegression": {
+      "Va_rank": 2,
+      "top5": [
+        [
+          "volt_dev",
+          0.285
+        ],
+        [
+          "Va",
+          0.18
+        ],
+        [
+          "Ia_rmean10",
+          0.083
+        ],
+        [
+          "Ia_rmean5",
+          0.075
+        ],
+        [
+          "Ia",
+          0.066
+        ]
+      ]
+    }
+  },
+  "shap_hour_matched": {
+    "DecisionTree": {
+      "Va_rank": 1,
+      "top5": [
+        [
+          "Va",
+          0.747
+        ],
+        [
+          "Vg_rmean10",
+          0.116
+        ],
+        [
+          "Pg",
+          0.093
+        ],
+        [
+          "Eg",
+          0.043
+        ],
+        [
+          "Ia",
+          0.0
+        ]
+      ]
+    },
+    "RandomForest": {
+      "Va_rank": 1,
+      "top5": [
+        [
+          "Va",
+          0.245
+        ],
+        [
+          "volt_dev",
+          0.184
+        ],
+        [
+          "ratio_Ig_Ia",
+          0.128
+        ],
+        [
+          "Eg",
+          0.069
+        ],
+        [
+          "Vg_rmean10",
+          0.042
+        ]
+      ]
+    },
+    "XGBoost": {
+      "Va_rank": 1,
+      "top5": [
+        [
+          "Va",
+          0.633
+        ],
+        [
+          "Vg_rmean10",
+          0.088
+        ],
+        [
+          "ratio_Ig_Ia",
+          0.064
+        ],
+        [
+          "Fg_rmean10",
+          0.041
+        ],
+        [
+          "Eg",
+          0.04
+        ]
+      ]
+    },
+    "LogisticRegression": {
+      "Va_rank": 2,
+      "top5": [
+        [
+          "volt_dev",
+          0.281
+        ],
+        [
+          "Va",
+          0.151
+        ],
+        [
+          "Eg",
+          0.107
+        ],
+        [
+          "ratio_Ig_Ia",
+          0.09
+        ],
+        [
+          "Ia_rmean10",
+          0.056
+        ]
+      ]
+    }
+  }
+}
